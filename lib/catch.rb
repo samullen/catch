@@ -1,7 +1,9 @@
 require 'faraday'
+require 'faraday_middleware'
+
+$LOAD_PATH.unshift(File.dirname(__FILE__))
 
 module Catch
-
   class << self
     attr_accessor :username
     attr_accessor :password
@@ -11,4 +13,7 @@ module Catch
       true
     end
   end
+
+  require 'catch/note'
+  require 'catch/client'
 end
