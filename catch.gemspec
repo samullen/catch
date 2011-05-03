@@ -5,8 +5,8 @@ Gem::Specification.new do |s|
   s.name        = "catch"
   s.version     = Catch::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = []
-  s.email       = []
+  s.authors     = ["Samuel Mullen"]
+  s.email       = ["samullen@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/catch"
   s.summary     = "TODO: Write a gem summary"
   s.description = "TODO: Write a gem description"
