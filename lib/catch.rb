@@ -1,0 +1,3 @@
+module Catch
+  # Your code goes here...
+end
