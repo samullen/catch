@@ -1,3 +1,14 @@
+require 'faraday'
+
 module Catch
-  # Your code goes here...
+
+  class << self
+    attr_accessor :username
+    attr_accessor :password
+
+    def configure
+      yield self
+      true
+    end
+  end
 end
