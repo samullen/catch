@@ -23,7 +23,6 @@ def catch_url(url)
 end
 
 def stub_get(url, filename, options={})
-puts catch_url(url)
   opts = {
     :body => fixture_file(filename),
     :content_type => 'application/json; charset=utf-8'
