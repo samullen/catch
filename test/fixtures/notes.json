@@ -1,20 +1,28 @@
 {
-"notes":[
-        {
-        "created_at": "2010-04-06T00:20:13.344Z",
-        "modified_at": "2010-04-06T00:20:13.344Z",
-        "reminder_at": null,
-        "id": 1903142,
-        "text": "a test note",
-        "summary": "a test note",
-        "source": "catch",
-        "source_url": "https://catch.com/",
-        "user": {
-                "id": 1680047,
-                "user_name": "apitest"
-        },
-        "children": 0,
-        "tags": [],
-        "location": null
-        } 
+  "notes":[
+    {
+      "browser_url": "https:\/\/catch.comhttps:\/\/catch.com\/m\/BgifC\/6H6edvYHGmC",
+      "public_url": null,
+      "source": null,
+      "text": "Lorem ipsum dolor",
+      "created_at": "2011-05-03T13:22:39.599Z",
+      "tags": [
+        "lorem"
+      ],
+      "modified_at": "2011-05-03T13:22:39.599Z",
+      "source_url": "https:\/\/catch.com\/",
+      "children": 0,
+      "reminder_at": null,
+      "location": null,
+      "summary": "Lorem ipsum dolor",
+      "id": 12345678,
+      "user": {
+         "user_name": "fooman",
+         "id": 87654321
+      }
+    }
+  ],
+  "count": 1,
+  "previous_cursor": 0,
+  "next_cursor": 0
 }
