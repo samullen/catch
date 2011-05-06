@@ -2,11 +2,13 @@ module Catch
   class Client
     include Note
 
+    attr_reader :api_url, :username
+
     def initialize(options={})
-      @api_url = "https://api.catch.com/v1"
-      username = options[:username]
-      password = options[:password]
-      connection.basic_auth(username, password)
+      @api_url  = "https://api.catch.com/v1"
+      @username = options[:username] || Catch.username
+      password  = options[:password] || Catch.password
+      connection.basic_auth(@username, password)
     end
 
     def connection
