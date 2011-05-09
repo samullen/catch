@@ -11,7 +11,7 @@ describe Catch::Client do
   describe "accessing the API" do
     it "sets the default url" do
       client = Catch::Client.new
-      client.api_url.must_equal 'https://api.catch.com/v1'
+      client.api_url.must_equal 'https://api.catch.com/v2'
     end
   end
 
@@ -24,7 +24,7 @@ describe Catch::Client do
 
       client = Catch::Client.new
       client.username.must_equal "barman"
-      client.api_url.must_equal "https://api.catch.com/v1"
+      client.api_url.must_equal "https://api.catch.com/v2"
     end
   end
 end

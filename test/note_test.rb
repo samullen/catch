@@ -10,7 +10,7 @@ describe Catch::Note do
 
   describe "#notes" do
     before do
-      stub_get("https://fooman:123123123@api.catch.com/v1/notes", "notes.json")
+      stub_get("https://fooman:123123123@api.catch.com/v2/notes", "notes.json")
       @notes = @client.notes
     end
 
@@ -19,37 +19,36 @@ describe Catch::Note do
     end
 
     it "retrieves values from a note within the retrieved array" do
-      @notes.first.id.must_equal 12345678
-      @notes.first.text.must_equal "Lorem ipsum dolor"
+      @notes.first.id.must_equal "12345678"
     end
   end
   describe "#note(id)" do
     before do
-      stub_get("https://fooman:123123123@api.catch.com/v1/notes/12345678", "note.json")
-      @note = @client.note(12345678)
+      stub_get("https://fooman:123123123@api.catch.com/v2/notes/12345678", "note.json")
+      @note = @client.note("12345678")
     end
 
     it "retrieves values a note" do
-      @note.id.must_equal 12345678
+      @note.id.must_equal "12345678"
       @note.text.must_equal "Lorem ipsum dolor"
     end
   end
 
   describe "#create_note(text)" do
     before do
-      stub_post("https://fooman:123123123@api.catch.com/v1/notes", "note.json")
+      stub_post("https://fooman:123123123@api.catch.com/v2/notes", "note.json")
     end
 
     it "retrieves values a note" do
       note = @client.create_note("Lorem ipsum dolor")
-      note.id.must_equal 12345678
+      note.id.must_equal "12345678"
       note.text.must_equal "Lorem ipsum dolor"
     end
   end
 
   describe "#delete_note(id)" do
     before do
-      stub_delete("https://fooman:123123123@api.catch.com/v1/notes")
+      stub_delete("https://fooman:123123123@api.catch.com/v2/notes")
     end
 
     it "deletes the note" do

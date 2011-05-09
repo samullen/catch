@@ -19,7 +19,7 @@ def fixture_file(filename)
 end
 
 def catch_url(url)
-  url =~ /^http/ ? url : "https://api.catch.com/v1#{url}"
+  url =~ /^http/ ? url : "https://api.catch.com/v2#{url}"
 end
 
 def stub_get(url, filename, options={})
@@ -41,8 +41,8 @@ end
 def stub_delete(url, options={})
   opts = {
     :body => "null",
-    :content_type => 'application/json; charset=utf-8'
+    :content_type => 'text/plain; charset=utf-8'
   }.merge(options)
-  FakeWeb.register_uri(:delete, catch_url(url), :response => opts)
+  FakeWeb.register_uri(:delete, catch_url(url), opts)
 end
 

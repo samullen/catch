@@ -5,7 +5,7 @@ module Catch
     attr_reader :api_url, :username
 
     def initialize(options={})
-      @api_url  = "https://api.catch.com/v1"
+      @api_url  = "https://api.catch.com/v2"
       @username = options[:username] || Catch.username
       password  = options[:password] || Catch.password
       connection.basic_auth(@username, password)
@@ -22,7 +22,10 @@ module Catch
   private
 
     def default_headers
-      headers = { :accept =>  'application/json', :user_agent => 'Ruby gem' }
+      headers = { 
+        :accept =>  'application/json', 
+        :user_agent => 'Ruby gem' 
+      }
     end
   end
 end

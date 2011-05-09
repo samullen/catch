@@ -1,28 +1,26 @@
 {
-  "notes": [
-    {
-      "browser_url": "https:\/\/catch.comhttps:\/\/catch.com\/m\/BX-wJ\/-ESuZmYBR50",
-      "public_url": null,
-      "source": "Catch",
-      "text": "Lorem ipsum dolor",
-      "created_at": "2011-02-20T13:56:03.000Z",
-      "tags": [
-        "lorem", "ipsum"
-      ],
-      "modified_at": "2011-02-21T16:22:42.051Z",
-      "source_url": "https:\/\/catch.com\/",
-      "children": 0,
-      "reminder_at": "1970-01-01T00:00:00.000Z",
-      "location": null,
-      "summary": "Lorem ipsum dolor",
-      "id": 12345678,
-      "user": {
-        "user_name": "fooman",
-        "id": 87654321
-      }
+  "status": "ok", 
+  "count": 1, 
+  "notes": [{
+    "browser_url": "https:\/\/catch.comhttps:\/\/catch.com\/m\/BX-wJ\/-ESuZmYBR50",
+    "public_url": null, 
+    "server_created_at": "2011-02-20T13:57:59.835Z", 
+    "reminder_at": "1970-01-01T00:00:00.000Z", 
+    "source": "Catch", 
+    "media": [], 
+    "created_at": "2011-02-20T14:00:03.000Z", 
+    "tags": ["quotes"], 
+    "modified_at": "2011-02-21T16:23:16.037Z", 
+    "comments": [], 
+    "source_url": "https:\/\/catch.com\/", 
+    "server_modified_at": "2011-02-21T16:23:16.037Z", 
+    "location": null, 
+    "text": "Lorem ipsum dolor",
+    "summary": "Lorem ipsum dolor",
+    "id": "12345678", 
+    "user": {
+      "user_name": "fooman", 
+      "id": "87654321"
     }
-  ],
-  "count": 1,
-  "previous_cursor": 0,
-  "next_cursor": 0
+  }]
 }
