@@ -15,9 +15,7 @@ module Catch
     end
 
     def delete_note(id)
-p 'xxxxx'
-      response = connection.delete "notes/#{id}"
-p 'xxxxx' + response
+      connection.delete("notes/#{id}").body.status == 'ok'
     end
   end
 end

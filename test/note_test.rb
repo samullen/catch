@@ -24,12 +24,13 @@ describe Catch::Note do
   end
   describe "#note(id)" do
     before do
-      stub_get("https://fooman:123123123@api.catch.com/v2/notes/12345678", "note.json")
-      @note = @client.note("12345678")
+      @id = '12345678'
+      stub_get("https://fooman:123123123@api.catch.com/v2/notes/#{@id}", "note.json")
+      @note = @client.note(@id)
     end
 
     it "retrieves values a note" do
-      @note.id.must_equal "12345678"
+      @note.id.must_equal @id
       @note.text.must_equal "Lorem ipsum dolor"
     end
   end
@@ -48,12 +49,13 @@ describe Catch::Note do
 
   describe "#delete_note(id)" do
     before do
-      stub_delete("https://fooman:123123123@api.catch.com/v2/notes")
+      @id = '123123'
+      stub_delete("https://fooman:123123123@api.catch.com/v2/notes/#{@id}", "note_delete.json")
     end
 
     it "deletes the note" do
-      note = @client.delete_note(123123)
-      note.must_equal "null"
+      note = @client.delete_note(@id)
+      note.must_equal true
     end
   end
 end

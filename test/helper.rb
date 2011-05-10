@@ -38,10 +38,10 @@ def stub_post(url, filename, options={})
   FakeWeb.register_uri(:post, catch_url(url), opts)
 end
 
-def stub_delete(url, options={})
+def stub_delete(url, filename, options={})
   opts = {
-    :body => "null",
-    :content_type => 'text/plain; charset=utf-8'
+    :body => fixture_file(filename),
+    :content_type => 'application/json; charset=utf-8'
   }.merge(options)
   FakeWeb.register_uri(:delete, catch_url(url), opts)
 end
