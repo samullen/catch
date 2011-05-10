@@ -1,0 +1,39 @@
+{
+  "server_time": "2011-02-26T01:49:16.582Z", 
+  "user": {
+    "account_level_desc": "Catch Free", 
+    "created_at": "2011-02-26T00:50:59.795Z", 
+    "deactivated_at": null, 
+    "account_capabilities": {
+      "allowed_content_types": [
+        "audio/*", 
+        "application/ogg", 
+        "image/*", 
+        "video/*"
+      ]
+    }, 
+    "account_subscription_end_advisory": null, 
+    "linked_accounts": [], 
+    "account_upload_activity": {
+      "2011-02": 6681
+    }, 
+    "id": "22878064", 
+    "email": "info@catch.com", 
+    "deactivateAccount": 0, 
+    "account_upload_activity_periodic": [{
+      "period_start": "2011-02-26T00:00:00.000Z", 
+      "period_activity": 6681, 
+      "period_end": "2011-03-26T00:00:00.000Z"
+    }], 
+    "user_name": "API Documenter", 
+    "emails": [{
+      "confirmed": "2011-02-26T00:50:59.795Z", 
+      "email": "info@catch.com", 
+      "primary": true
+    }], 
+    "account_limits": {
+      "monthly_upload_limit": 52428800
+    }, 
+    "account_level": 0
+  }
+}

@@ -15,5 +15,6 @@ module Catch
   end
 
   require 'catch/note'
+  require 'catch/user'
   require 'catch/client'
 end
