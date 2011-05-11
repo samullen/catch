@@ -43,13 +43,13 @@ describe Catch::Note do
     end
   end
 
-  describe "#create_note(options={})" do
+  describe "#add_note(options={})" do
     before do
       stub_post("https://fooman:123123123@api.catch.com/v2/notes", "note.json")
     end
 
-    it "creates a new note" do
-      note = @client.create_note({:text => "Lorem ipsum dolor"})
+    it "adds a new note" do
+      note = @client.add_note({:text => "Lorem ipsum dolor"})
       note.id.must_equal "12345678"
       note.text.must_equal "Lorem ipsum dolor"
     end

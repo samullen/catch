@@ -11,8 +11,8 @@ module Catch
       connection.get("notes/#{id}").body.notes.first
     end
 
-    def create_note(text)
-      payload = "text=#{text}"
+    def add_note(params={})
+      payload = params.map {|k,v| "#{k}=#{v}"}.join("&")
       response = connection.post "notes", payload
       response.body.notes.first
     end
