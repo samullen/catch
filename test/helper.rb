@@ -46,3 +46,6 @@ def stub_delete(url, filename, options={})
   FakeWeb.register_uri(:delete, catch_url(url), opts)
 end
 
+def build_url(url, params)
+  [url, params.map {|k,v| "#{k}=#{v}"}.join("&")].join("?")
+end
