@@ -1,7 +1,10 @@
 module Catch
   module Note
-    def notes
-      connection.get("notes").body.notes
+    def notes(params={})
+      connection.get do |req|
+        req.url("notes")
+        req.params.merge!(params)
+      end.body.notes
     end
 
     def note(id)
