@@ -17,6 +17,12 @@ module Catch
       response.body.notes.first
     end
 
+    def modify_note(id, params={})
+      payload = params.map {|k,v| "#{k}=#{v}"}.join("&")
+      response = connection.post "notes/#{id}", payload
+      response.body.notes.first
+    end
+
     def delete_note(id)
       connection.delete("notes/#{id}").body.status == 'ok'
     end

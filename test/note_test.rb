@@ -55,6 +55,19 @@ describe Catch::Note do
     end
   end
 
+  describe "#modify_note(id, options={})" do
+    before do
+      @id = '12345678'
+      stub_post("https://fooman:123123123@api.catch.com/v2/notes/#{@id}", "modified_note.json")
+    end
+
+    it "returns the updated note" do
+      note = @client.modify_note(@id, {:text => "Foo bar baz"})
+      note.id.must_equal @id
+      note.text.must_equal "Foo bar baz"
+    end
+  end
+
   describe "#delete_note(id)" do
     before do
       @id = '123123'
