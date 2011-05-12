@@ -1,6 +1,7 @@
 module Catch
   class Client
     include Note
+    include Search
     include User
 
     attr_reader :api_url, :username
