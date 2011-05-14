@@ -15,6 +15,7 @@ module Catch
   end
 
   require 'catch/comment'
+  require 'catch/media'
   require 'catch/note'
   require 'catch/search'
   require 'catch/tag'

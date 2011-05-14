@@ -1,6 +1,7 @@
 module Catch
   class Client
     include Comment
+    include Media
     include Note
     include Search
     include Tag
@@ -17,6 +18,9 @@ module Catch
 
     def connection
       @connection ||= Faraday.new(:url => @api_url, :headers => default_headers) do |builder|
+        builder.request :multipart
+        builder.request :url_encoded
+        builder.request :json
         builder.adapter Faraday.default_adapter
         builder.use Faraday::Response::Mashify
         builder.use Faraday::Response::ParseJson
