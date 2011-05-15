@@ -1,18 +1,14 @@
 module Catch
-  module Note
-    def comments(note_id, params={})
-      connection.get do |req|
-        req.url("comments/#{id}")
-        req.params.merge!(params)
-      end.body.notes
-    end
-
-#     def comment(note_id, comment_id)
-#       params = {:comment => comment_id}
+  module Comment
+#     def notes(params={})
 #       connection.get do |req|
-#         req.url("comments/#{note_id}")
+#         req.url("notes")
 #         req.params.merge!(params)
-#       end..body.notes.first
+#       end.body.notes
+#     end
+# 
+#     def note(id)
+#       connection.get("notes/#{id}").body.notes.first
 #     end
 # 
 #     def add_note(params={})
