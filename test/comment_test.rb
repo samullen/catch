@@ -46,40 +46,44 @@ describe Catch::Comment do
     end
   end
 
-#   describe "#add_note(options={})" do
-#     before do
-#       stub_post("https://fooman:123123123@api.catch.com/v2/notes", "note.json")
-#     end
-# 
-#     it "adds a new note" do
-#       note = @client.add_note({:text => "Lorem ipsum dolor"})
-#       note.id.must_equal "12345678"
-#       note.text.must_equal "Lorem ipsum dolor"
-#     end
-#   end
-# 
-#   describe "#modify_note(id, options={})" do
-#     before do
-#       @id = '12345678'
-#       stub_post("https://fooman:123123123@api.catch.com/v2/notes/#{@id}", "modified_note.json")
-#     end
-# 
-#     it "returns the updated note" do
-#       note = @client.modify_note(@id, {:text => "Foo bar baz"})
-#       note.id.must_equal @id
-#       note.text.must_equal "Foo bar baz"
-#     end
-#   end
-# 
-#   describe "#delete_note(id)" do
-#     before do
-#       @id = '123123'
-#       stub_delete("https://fooman:123123123@api.catch.com/v2/notes/#{@id}", "note_delete.json")
-#     end
-# 
-#     it "deletes a specified note" do
-#       note = @client.delete_note(@id)
-#       note.must_equal true
-#     end
-#   end
+  describe "#add_comment(options={})" do
+    before do
+      stub_post("https://fooman:123123123@api.catch.com/v2/comments/123", "comment.json")
+    end
+
+    it "adds a new comment to a note" do
+      comment = @client.add_comment(123, {:text => "Lorem ipsum dolor"})
+      comment.id.must_equal "12345678"
+      comment.text.must_equal "Lorem ipsum dolor"
+    end
+  end
+
+  describe "#modify_comment(note_id, comment_id, options={})" do
+    before do
+      @note_id = '123'
+      @comment_id = '12345678'
+      @comments_url = "https://fooman:123123123@api.catch.com/v2/comments/123"
+    end
+
+    it "returns the updated comment" do
+      params = {:comment => @comment_id, :text => "Foo%20bar%20baz"}
+      stub_post(build_url(@comments_url, params), "modified_comment.json", params)
+      comment = @client.modify_comment(@note_id, @comment_id, {:text => "Foo bar baz"})
+      comment.id.must_equal @comment_id
+      comment.text.must_equal "Foo bar baz"
+    end
+  end
+
+  describe "#delete_note(id)" do
+    before do
+      @note_id = '123'
+      @comment_id = '12345678'
+      stub_delete("https://fooman:123123123@api.catch.com/v2/comments/#{@note_id}?comment=#{@comment_id}", "comment_delete.json")
+    end
+
+    it "deletes a specified comment" do
+      comment = @client.delete_comment(@note_id, @comment_id)
+      comment.must_equal true
+    end
+  end
 end
