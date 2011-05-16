@@ -30,34 +30,34 @@ describe Catch::Comment do
     end
   end
 
-# Retrieving a single comment doesn't work against Catch API
-#   describe "#comment(id)" do
-#     before do
-#       @note_id = '123'
-#       @comment_id = '12345678'
-#       params = {:comment => @comment_id}
-#       stub_get(build_url(@comments_url, params), "comment.json", params)
-#       @comment = @client.comment(@note_id, @comment_id)
-#     end
-# 
-#     it "retrieves values a note" do
-#       @comment.id.must_equal @comment_id
-#       @comment.text.must_equal "Lorem ipsum dolor1"
-#     end
-#   end
-
-  describe "#add_note(options={})" do
+  describe "#comment(id)" do
     before do
-      stub_post("https://fooman:123123123@api.catch.com/v2/notes", "note.json")
+      @note_id = '123'
+      @comment_id = '12345678'
+      @comment_url = "https://fooman:123123123@api.catch.com/v2/comment/123"
+      params = {:comment => @comment_id}
+      stub_get(build_url(@comment_url, params), "comment.json", params)
+      @comment = @client.comment(@note_id, @comment_id)
     end
 
-    it "adds a new note" do
-      note = @client.add_note({:text => "Lorem ipsum dolor"})
-      note.id.must_equal "12345678"
-      note.text.must_equal "Lorem ipsum dolor"
+    it "retrieves values a note" do
+      @comment.id.must_equal @comment_id
+      @comment.text.must_equal "Lorem ipsum dolor"
     end
   end
 
+#   describe "#add_note(options={})" do
+#     before do
+#       stub_post("https://fooman:123123123@api.catch.com/v2/notes", "note.json")
+#     end
+# 
+#     it "adds a new note" do
+#       note = @client.add_note({:text => "Lorem ipsum dolor"})
+#       note.id.must_equal "12345678"
+#       note.text.must_equal "Lorem ipsum dolor"
+#     end
+#   end
+# 
 #   describe "#modify_note(id, options={})" do
 #     before do
 #       @id = '12345678'
