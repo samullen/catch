@@ -19,7 +19,7 @@ def fixture_file(filename)
 end
 
 def catch_url(url)
-  url =~ /^http/ ? url : "https://api.catch.com/v2#{url}"
+  url.match(/^http/) ? url : "https://api.catch.com/v2#{url}"
 end
 
 def stub_get(url, filename, options={})

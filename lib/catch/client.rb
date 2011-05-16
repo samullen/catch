@@ -1,5 +1,6 @@
 module Catch
   class Client
+    include Comment
     include Note
     include Search
     include User
