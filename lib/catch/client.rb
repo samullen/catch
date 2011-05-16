@@ -3,6 +3,7 @@ module Catch
     include Comment
     include Note
     include Search
+    include Tag
     include User
 
     attr_reader :api_url, :username
