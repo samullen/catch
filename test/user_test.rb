@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'helper'
 
-describe Catch::Note do
+describe Catch::User do
   before do
     @client = catch_test_client
   end
