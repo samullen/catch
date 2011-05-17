@@ -3,6 +3,7 @@ module Catch
     include Comment
     include Media
     include Note
+    include Place
     include Search
     include Tag
     include User
