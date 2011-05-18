@@ -7,7 +7,6 @@ module Catch
       connection.put("media/#{id}", params).body
     end
 
-
     def media(note_id, media_id, params={})
       connection.get do |req|
         req.url("media/#{note_id}/#{media_id}")
@@ -19,7 +18,7 @@ module Catch
       connection.delete("media/#{note_id}/#{media_id}").body.status == 'ok'
     end
 
-    def shared_media(note_id, media_id, params={})
-    end
+#     def shared_media(note_id, media_id, params={})
+#     end
   end
 end
