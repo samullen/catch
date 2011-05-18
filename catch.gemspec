@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Samuel Mullen"]
   s.email       = ["samullen@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/catch"
-  s.summary     = "TODO: Write a gem summary"
-  s.description = "TODO: Write a gem description"
+  s.summary     = "Ruby wrapper for Catch.com's API"
+  s.description = "Ruby wrapper for Catch.com's API"
 
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "catch"
