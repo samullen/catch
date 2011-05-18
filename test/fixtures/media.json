@@ -1,0 +1,10 @@
+{
+  "created_at": null,
+  "id": "123abc",
+  "note_id": "123",
+  "server_created_at": "2011-05-18T17:49:47.190Z",
+  "size":16361,
+  "src":"https://api.catch.com/v2/media/123123123123/123abc",
+  "type":"image/jpeg",
+  "voicenote_hint":false
+}

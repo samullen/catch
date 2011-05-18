@@ -4,7 +4,7 @@ module Catch
     def add_media(id, filepath, params={})
       params.merge!({:data => Faraday::UploadIO.new(filepath, 'image/jpeg')})
 
-      connection.put "media/#{id}", params
+      connection.put("media/#{id}", params).body
     end
 
 
@@ -16,7 +16,7 @@ module Catch
     end
 
     def delete_media(note_id, media_id)
-      connection.delete "media/#{note_id}/#{media_id}"
+      connection.delete("media/#{note_id}/#{media_id}").body.status == 'ok'
     end
 
     def shared_media(note_id, media_id, params={})

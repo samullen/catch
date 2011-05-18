@@ -38,6 +38,15 @@ def stub_post(url, filename, options={})
   FakeWeb.register_uri(:post, catch_url(url), opts)
 end
 
+# only used for media
+def stub_put(url, filename, options={})
+  opts = {
+    :body => fixture_file(filename),
+    :content_type => 'application/json; charset=utf-8'
+  }.merge(options)
+  FakeWeb.register_uri(:put, /#{catch_url(url)}/, opts)
+end
+
 def stub_delete(url, filename, options={})
   opts = {
     :body => fixture_file(filename),
