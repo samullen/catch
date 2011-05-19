@@ -22,7 +22,27 @@ Ruby wrapper for the [Catch API](http://developer.catch.com).
 
 #### Examples
 
+  catch.notes
+  catch.note(<note_id>)
+  catch.add_note({:text => "Lorem ipsum dolor"})
+  catch.modify_note(<note_id>, {:text => "Lorem ipsum dolor"})
+  catch.delete_note(<note_id>)
+
+  catch.comments(<note_id>)
+  catch.comment(<note_id>, <comment_id>)
+  catch.add_comment(<note_id>, {:text => "Lorem ipsum dolor"})
+  catch.modify_comment(<note_id>, <comment_id>, {:text => "Lorem ipsum dolor"})
+  catch.delete_comment(<note_id>, <comment_id>)
+
+  catch.add_media(<note_id>, <filepath>)
+  catch.media(<note_id>, <media_id>)
+  catch.delete_media(<note_id>, <media_id>)
+
+  catch.search(<query string>)
+
   catch.user
+
+  catch.tags
 
 ## Note on Patches/Pull Requestso
 
