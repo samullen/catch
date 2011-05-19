@@ -8,10 +8,10 @@ module Catch
     end
 
     def media(note_id, media_id, params={})
-      connection.get do |req|
+      media_connection.get do |req|
         req.url("media/#{note_id}/#{media_id}")
         req.params.merge!(params)
-      end.body.notes
+      end.body
     end
 
     def delete_media(note_id, media_id)
@@ -19,6 +19,10 @@ module Catch
     end
 
 #     def shared_media(note_id, media_id, params={})
+#       media_connection.get do |req|
+#         req.url("media/#{note_id}/#{media_id}")
+#         req.params.merge!(params)
+#       end.body
 #     end
   end
 end
