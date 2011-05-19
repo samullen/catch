@@ -4,45 +4,45 @@ Ruby wrapper for the [Catch API](http://developer.catch.com).
 
 ## Installation
 
-  sudo gem install catch
+    sudo gem install catch
 
 ## Usage
 
 ### Instantiate a client (Basic Auth)
 
-  catch = Catch::Client.new(:username => "fooman", :password => "supersecrete")
+    catch = Catch::Client.new(:username => "fooman", :password => "supersecrete")
 
 ### or configure once
 
-  Catch.configure do |config|
-    config.username = "fooman"
-    config.password = "supersecret"
-  end
-  catch = Catch::Client.new
+    Catch.configure do |config|
+      config.username = "fooman"
+      config.password = "supersecret"
+    end
+    catch = Catch::Client.new
 
 #### Examples
 
-  catch.notes
-  catch.note(<note_id>)
-  catch.add_note({:text => "Lorem ipsum dolor"})
-  catch.modify_note(<note_id>, {:text => "Lorem ipsum dolor"})
-  catch.delete_note(<note_id>)
+    catch.notes
+    catch.note(<note_id>)
+    catch.add_note({:text => "Lorem ipsum dolor"})
+    catch.modify_note(<note_id>, {:text => "Lorem ipsum dolor"})
+    catch.delete_note(<note_id>)
 
-  catch.comments(<note_id>)
-  catch.comment(<note_id>, <comment_id>)
-  catch.add_comment(<note_id>, {:text => "Lorem ipsum dolor"})
-  catch.modify_comment(<note_id>, <comment_id>, {:text => "Lorem ipsum dolor"})
-  catch.delete_comment(<note_id>, <comment_id>)
+    catch.comments(<note_id>)
+    catch.comment(<note_id>, <comment_id>)
+    catch.add_comment(<note_id>, {:text => "Lorem ipsum dolor"})
+    catch.modify_comment(<note_id>, <comment_id>, {:text => "Lorem ipsum dolor"})
+    catch.delete_comment(<note_id>, <comment_id>)
 
-  catch.add_media(<note_id>, <filepath>)
-  catch.media(<note_id>, <media_id>)
-  catch.delete_media(<note_id>, <media_id>)
+    catch.add_media(<note_id>, <filepath>)
+    catch.media(<note_id>, <media_id>)
+    catch.delete_media(<note_id>, <media_id>)
 
-  catch.search(<query string>)
+    catch.search(<query string>)
 
-  catch.user
+    catch.user
 
-  catch.tags
+    catch.tags
 
 ## Note on Patches/Pull Requestso
 
