@@ -23,22 +23,14 @@ describe Catch::Media do
     end
   end
 
-#   describe "#media" do
-# 
-#     it "retrieves a list of notes as an array" do
-#       @notes.must_be_instance_of Array
-#     end
-# 
-#     it "retrieves values from a note within the retrieved array" do
-#       @notes.first.id.must_equal "12345678"
-#     end
-# 
-#     it "takes a hash as a parameter" do
-#       params = {:limit => 2}
-#       stub_get(build_url(@notes_url, params), "notes.json", params)
-#       @client.notes(params).first.id.must_equal "12345678"
-#     end
-#   end
+  describe "#media" do
+    it "retrieves a media file" do
+skip
+      stub_get("#{@media_url}/#{@note_id}/#{@media_id}", "../files/287.jpg")
+      media_file = @client.media(@note_id, @media_id)
+      media_file.must_match(/JPEG/)
+    end
+  end
 
   describe "#delete_media(note_id, media_id)" do
     before do
