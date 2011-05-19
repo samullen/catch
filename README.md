@@ -4,13 +4,13 @@ Ruby wrapper for the [Catch API](http://developer.catch.com).
 
 ## Installation
 
-    sudo gem install catch
+    gem install catch
 
 ## Usage
 
 ### Instantiate a client (Basic Auth)
 
-    catch = Catch::Client.new(:username => "fooman", :password => "supersecrete")
+    catch = Catch::Client.new(:username => "fooman", :password => "supersecret")
 
 ### or configure once
 
@@ -44,7 +44,9 @@ Ruby wrapper for the [Catch API](http://developer.catch.com).
 
     catch.tags
 
-## Note on Patches/Pull Requestso
+See the [Catch API](http://developer.catch.com) documentation for more information.
+
+## Note on Patches/Pull Requests
 
 * Fork the project.
 * Make your feature addition or bug fix.
