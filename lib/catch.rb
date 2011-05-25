@@ -8,6 +8,8 @@ module Catch
     attr_accessor :username
     attr_accessor :password
 
+    # Configures default credentials easily
+    # @yield [username, password]
     def configure
       yield self
       true
