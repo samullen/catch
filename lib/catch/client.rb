@@ -17,6 +17,9 @@ module Catch
       media_connection.basic_auth(@username, password)
     end
 
+    # Raw HTTP connection, either Faraday::Connection
+    #
+    # @return [Faraday::Connection]
     def connection
       @connection ||= Faraday.new(:url => @api_url, :headers => default_headers) do |builder|
         builder.request :multipart
@@ -28,6 +31,11 @@ module Catch
       end
     end
 
+    # Raw HTTP connection, either Faraday::Connection
+    #
+    # media_connection is used for calls which do not return JSON data.
+    #
+    # @return [Faraday::Connection]
     def media_connection
       @media_connection ||= Faraday.new(:url => @api_url, :headers => default_headers) do |builder|
         builder.request :multipart
@@ -36,7 +44,8 @@ module Catch
         builder.use Faraday::Response::Mashify
       end
     end
-  private
+
+    private
 
     def default_headers
       headers = { 
