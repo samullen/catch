@@ -1,9 +1,12 @@
 module Catch
   module Comment
-    def comments(note_id, params={})
+
+    # Retrieve a list of all comments for a note.
+    #
+    # @param [Integer] note_id Note ID
+    def comments(note_id)
       connection.get do |req|
         req.url("comments/#{note_id}")
-        req.params.merge!(params)
       end.body.notes
     end
 

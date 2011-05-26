@@ -22,12 +22,6 @@ describe Catch::Comment do
     it "retrieves values from a comment within the retrieved array" do
       @comments.first.text.must_equal "Lorem ipsum dolor1"
     end
-
-    it "takes a hash as a parameter" do
-      params = {:limit => 2}
-      stub_get(build_url(@comments_url, params), "comments.json", params)
-      @client.comments(123, params).first.id.must_equal "1234"
-    end
   end
 
   describe "#comment(id)" do
