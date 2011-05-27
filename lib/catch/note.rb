@@ -50,6 +50,22 @@ module Catch
       response.body.notes.first
     end
 
+    # Modify a note
+    #
+    # @option params [Integer] :latitude The latitude.
+    # @option params [Integer] :longitude The longitude.
+    # @option params [String] :source Source (application) which created note.
+    # @option params [String] :text The text of the note
+    # @option params [String] :mode The sharing settings for the note. If unset, private is implied. (public | private | shared)
+    # @option params [Float] :accuracy_position The accuracy of coordinates from GPS.
+    # @option params [Float] :altitude The altitude from GPS associated with the note.
+    # @option params [Float] :bearing The bearing from GPS associated with the note
+    # @option params [Float] :speed The speed from GPS associated with the note
+    # @option params [Float] :speed The speed from GPS associated with the note
+    # @option params [DateTime] :created_at Date at which the comment was created.
+    # @option params [DateTime] :modified_at Date of last modification
+    # @option params [DateTime] :reminder_at Will present a reminder at the time specified on supported devices
+    # Waiting on annotations
     def modify_note(id, params={})
       payload = params.map {|k,v| "#{k}=#{v}"}.join("&")
       response = connection.post "notes/#{id}", payload
