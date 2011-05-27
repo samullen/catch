@@ -3,3 +3,4 @@ pkg/*
 .bundle
 .irbrc
 catch*.gem
+.rvmrc
