@@ -4,3 +4,4 @@ pkg/*
 .irbrc
 catch*.gem
 .rvmrc
+Gemfile.lock
