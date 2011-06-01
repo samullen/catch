@@ -19,14 +19,14 @@ module Catch
       response.body.result
     end
 
-#     def modify_note(id, params={})
-#       payload = params.map {|k,v| "#{k}=#{v}"}.join("&")
-#       response = connection.post "notes/#{id}", payload
-#       response.body.notes.first
-#     end
-# 
-#     def delete_note(id)
-#       connection.delete("notes/#{id}").body.status == 'ok'
-#     end
+    def modify_place(id, params={})
+      payload = params.map {|k,v| "#{k}=#{v}"}.join("&")
+      response = connection.post "places/#{id}", payload
+      response.body.result
+    end
+
+    def delete_place(id)
+      connection.delete("places/#{id}").body.status == 'ok'
+    end
   end
 end

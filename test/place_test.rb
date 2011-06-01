@@ -31,7 +31,7 @@ describe Catch::Place do
       @place = @client.place(@id)
     end
 
-    it "retrieves values a note" do
+    it "retrieves values of a place" do
       @place.id.must_equal @id
       @place.name.must_equal "Somewhere"
     end
@@ -43,9 +43,34 @@ describe Catch::Place do
     end
 
     it "adds a new place" do
-      note = @client.add_place(90, 90)
-      note.id.must_equal "abc123"
-      note.name.must_equal "Somewhere"
+      place = @client.add_place(90, 90)
+      place.id.must_equal "abc123"
+      place.name.must_equal "Somewhere"
+    end
+  end
+
+  describe "#modify_place(id, options={})" do
+    before do
+      @id = 'abc123'
+      stub_post("https://fooman:123123123@api.catch.com/v2/places/#{@id}", "modified_place.json")
+    end
+
+    it "returns the updated place" do
+      place = @client.modify_place(@id, {:name => "Lorem ipsum"})
+      place.id.must_equal @id
+      place.name.must_equal "Lorem ipsum"
+    end
+  end
+
+  describe "#delete_place(id)" do
+    before do
+      @id = 'abc123'
+      stub_delete("https://fooman:123123123@api.catch.com/v2/places/#{@id}", "place_delete.json")
+    end
+
+    it "deletes a specified place" do
+      place = @client.delete_place(@id)
+      place.must_equal true
     end
   end
 end
