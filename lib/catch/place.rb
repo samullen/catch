@@ -4,17 +4,19 @@ module Catch
       connection.get do |req|
         req.url("places")
         req.params.merge!(params)
-      end.body.places
+      end.body.result
     end
 
-#     def note(id)
-#       connection.get("notes/#{id}").body.notes.first
-#     end
-# 
-    def add_place(params={})
+    def place(id)
+      connection.get("places/#{id}").body
+    end
+
+    def add_place(latitude, longitude, params={})
+      params[:latitude] = latitude
+      params[:longitude] = longitude
       payload = params.map {|k,v| "#{k}=#{v}"}.join("&")
       response = connection.put "places", payload
-      response.body.places
+      response.body.result
     end
 
 #     def modify_note(id, params={})
