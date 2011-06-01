@@ -19,6 +19,7 @@ module Catch
   require 'catch/comment'
   require 'catch/media'
   require 'catch/note'
+  require 'catch/place'
   require 'catch/search'
   require 'catch/tag'
   require 'catch/user'

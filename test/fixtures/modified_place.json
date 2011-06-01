@@ -1,0 +1,21 @@
+{
+  "status":"ok",
+  "result": {
+    "category":[],
+    "rating":null,
+    "name":"Lorem ipsum",
+    "phone":null,
+    "created_at":"2011-05-26T19:43:05.450Z",
+    "modified_at":"2011-05-26T19:43:05.450Z",
+    "uri":"https://catch.com/v2/places/abc123",
+    "created_by":123,
+    "server_modified_at":"2011-06-01T12:32:59.938Z",
+    "location":{
+      "latitude":90,
+      "longitude":90
+    },
+    "address":null,
+    "id":"abc123"
+  }
+}
+
