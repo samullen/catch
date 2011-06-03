@@ -23,4 +23,5 @@ module Catch
   require 'catch/tag'
   require 'catch/user'
   require 'catch/client'
+  require 'catch/cli'
 end
