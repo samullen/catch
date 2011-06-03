@@ -3,8 +3,6 @@ module Catch
       def initialize(params={})
         @params=params
         puts "Connecting to Catch...params=#{params}" if @params[:v]
-        #ok my problem was running this script as a script and not 
-        #ruby catch_cli then it works just fine
         @catch = Catch::Client.new(:username => @params[:u], :password => @params[:p])
         @catch
       end

@@ -50,7 +50,6 @@ arg_name 'catch_note_id'
 command :fetch do |c|
   c.action do |global_options,options,args|
     puts "Fetching..." if global_options[:v]
-    #https://github.com/davetron5000/gli/wiki/Example
     puts @catch.fetch_text(args[0])
   end
 end
