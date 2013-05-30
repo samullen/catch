@@ -15,6 +15,9 @@ module Catch
       @username = options[:username] || Catch.username
       password  = options[:password] || Catch.password
       connection.basic_auth(@username, password)
+      @auth_token = connection.post do |req|
+        req.url("user.json")
+      end.body.user.auth_token
       media_connection.basic_auth(@username, password)
     end
 
