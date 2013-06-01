@@ -15,7 +15,7 @@ module Catch
     # @option params [Integer] :offset The offset from which to collect results, with default of zero. The number of results is specified by limit.
     def notes(params={})
       connection.get do |req|
-        req.url("notes")
+        req.url("notes", :bearer_token => @auth_token)
         req.params.merge!(params)
       end.body.notes
     end
@@ -25,7 +25,7 @@ module Catch
     # @param [Integer] note_id Note ID
     # @option params [Boolean] :full Whether or not to return full results.
     def note(id)
-      connection.get("notes/#{id}").body.notes.first
+      connection.get("notes/#{id}", :bearer_token => @auth_token).body.notes.first
     end
 
     # Create a new note.
