@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.add_dependency('faraday_middleware', '~> 0.6')
   s.add_dependency('hashie', '~> 1.0.0')
   s.add_dependency('multi_json', '~> 1.0.0')
+  s.add_dependency('gli', '~> 1.3.0')
 
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency('fakeweb', '>= 1.3.0')

@@ -1,0 +1,107 @@
+#!/usr/bin/ruby
+# 1.9 adds realpath to resolve symlinks; 1.8 doesn't
+# have this method, so we add it so we get resolved symlinks
+# and compatibility
+unless File.respond_to? :realpath
+  class File #:nodoc:
+    def self.realpath path
+      return realpath(File.readlink(path)) if symlink?(path)
+      path
+    end
+  end
+end
+$: << File.expand_path(File.dirname(File.realpath(__FILE__)) + '/../lib')
+require 'rubygems'
+require 'gli'
+require 'catch'
+require 'catch/version'
+require 'catch/cli'
+
+include GLI
+
+program_desc 'Catch CLI: A command line script for using the Catch ruby gem'
+
+config_file '.catch.rc' 
+
+version Catch::VERSION
+
+desc 'Verbose logging'
+switch [:v]
+
+desc 'Catch username'
+arg_name 'username'
+flag [:u]
+
+desc 'Catch password'
+arg_name 'password'
+flag [:p]
+
+desc 'Create a new catch note'
+arg_name 'note_text'
+command :new do |c|
+  c.action do |global_options,options,args|
+    puts "New Note..." if global_options[:v]
+    puts @catch.new(args[0])
+  end
+end
+
+desc 'Retrieve an existing note'
+arg_name 'catch_note_id'
+command :fetch do |c|
+  c.action do |global_options,options,args|
+    puts "Fetching..." if global_options[:v]
+    puts @catch.fetch_text(args[0])
+  end
+end
+
+desc 'Append text to an existing note'
+arg_name 'catch_note_id, text_to_append'
+command :update do |c|
+  c.action do |global_options,options,args|
+    puts "Updating..." if global_options[:v]
+    puts @catch.update(args[0], args[1])
+  end
+end
+
+desc 'Delete a note'
+arg_name 'catch_note_id'
+command :delete do |c|
+  c.action do |global_options,options,args|
+    puts "Deleting..." if global_options[:v]
+    puts @catch.delete(args[0])
+  end
+end
+
+desc 'Search for notes'
+arg_name 'catch_note_id'
+command :search do |c|
+  c.action do |global_options,options,args|
+    puts "Searching..." if global_options[:v]
+    puts @catch.search(args[0])
+  end
+end
+
+pre do |global,command,options,args|
+  # Pre logic here
+  # Return true to proceed; false to abourt and not call the
+  # chosen command
+  # Use skips_pre before a command to skip this block
+  # on that command only
+  @catch = Catch::Runner.new(global)
+  true
+end
+
+post do |global,command,options,args|
+  # Post logic here
+  # Use skips_post before a command to skip this
+  # block on that command only
+end
+
+on_error do |exception|  
+  # Error logic here
+  # return false to skip default error handling
+  puts "Doh! We found a problem #{exception}"
+  true
+end
+
+exit GLI.run(ARGV)
